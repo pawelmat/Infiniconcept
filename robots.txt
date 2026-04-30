@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /.github/
+Disallow: /assets/
+Disallow: /*.md$
+
+Sitemap: https://www.infiniconcept.com/sitemap.xml

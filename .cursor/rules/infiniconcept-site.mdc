@@ -1,0 +1,15 @@
+---
+description: Infiniconcept static site — follow AGENTS.md for page whitelist, backup/ scope, and branding.
+globs: "*.html,assets/js/*.js,assets/css/*.css,site.webmanifest,sitemap.xml,robots.txt,AGENTS.md"
+alwaysApply: false
+---
+
+# Infiniconcept site
+
+Read **[AGENTS.md](AGENTS.md)** at the repo root for:
+
+- The five root HTML pages and allowed internal links
+- `header.html` + `hfloader.js` shell pattern
+- English-only, no `backup/` edits, GA commented until enabled
+
+Do not add navigation to HTML files that are not in the repo root (except `header.html`).
