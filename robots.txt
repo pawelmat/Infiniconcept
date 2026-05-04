@@ -3,5 +3,7 @@ Allow: /
 Disallow: /.github/
 Disallow: /assets/
 Disallow: /*.md$
+Disallow: /header.html
+Disallow: /newsarchive.html
 
 Sitemap: https://www.infiniconcept.com/sitemap.xml

@@ -8,6 +8,13 @@
 
 Only root-level HTML files are part of the live site. **Do not** add navigation, footer links, or sitemap entries to any other `.html` path (e.g. files that exist only under `backup/`).
 
+## Runtime-loaded fragments (not standalone pages)
+
+- **`header.html`** — Contains `#header_eng` and `#footer_eng` templates. Fetched by `hfloader.js` and injected into every page at runtime. Not a navigable page itself.
+- **`newsarchive.html`** — Contains `#oldnews` div with older news cards. Fetched by inline script in `index.html` when user clicks "older news" link. Not a navigable page itself.
+
+These files should **not** appear in `sitemap.xml`, `robots.txt` allow lists, or navigation menus.
+
 ## Layout system
 
 - Each page has empty `<header id="header">` and `<footer id="footer">` and starts with `body` hidden until **[assets/js/hfloader.js](assets/js/hfloader.js)** fetches `header.html`, parses `#header_eng` and `#footer_eng`, clones them to `#header` / `#footer`, shows the body, and fires `headerFooterLoaded`.

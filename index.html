@@ -26,13 +26,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.infiniconcept.com/">
   <meta property="og:title" content="Infiniconcept — independent game developer">
-  <meta property="og:description" content="Infiniconcept is an independent games developer. News, downloads, and playable versions of Citadel and related projects.">
+  <meta property="og:description" content="Infiniconcept is an independent games developer. This website is the focal point for all its games and projects">
   <meta property="og:image" content="https://www.infiniconcept.com/assets/icons/icon_256.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.infiniconcept.com/">
   <meta name="twitter:title" content="Infiniconcept — independent game developer">
-  <meta name="twitter:description" content="Infiniconcept is an independent games developer. News, downloads, and playable versions of Citadel and related projects.">
+  <meta name="twitter:description" content="Infiniconcept is an independent games developer. This website is the focal point for all its games and projects">
   <meta name="twitter:image" content="https://www.infiniconcept.com/assets/icons/icon_256.png">
 
   <script type="application/ld+json">
@@ -92,12 +92,12 @@
                 <span class="typed-cursor" aria-hidden="true"></span>
             </p>
             <p>
-                We are an independent game development studio with projects spanning AI-powered voice controlled devices such as Amazon Alexa, web/browser, PC and mobile.
+                Independent game development studio with projects spanning PC, mobile, browser, and AI-powered voice controlled devices such as Amazon Alexa.
             </p>
             <div class="social-links">
-              <a href="https://store.steampowered.com/" aria-label="Steam" title="Steam"><i class="bi bi-steam" aria-hidden="true"></i></a>
-              <a href="https://www.gog.com/en/games?developers=virtual-design" aria-label="Good Old Games" title="GOG"><i class="bi bi-circle" aria-hidden="true"></i></a>
-              <a href="https://www.amazon.co.uk/Infiniconcept-Battle-Robots/dp/B0822G6DXH" aria-label="Amazon Alexa" title="Alexa"><i class="bi bi-alexa" aria-hidden="true"></i></a>
+              <a href="https://store.steampowered.com/" aria-label="Steam" title="Steam" rel="noopener noreferrer" target="_blank"><i class="bi bi-steam" aria-hidden="true"></i></a>
+              <a href="https://www.gog.com/en/games?developers=virtual-design" aria-label="Good Old Games" title="GOG" rel="noopener noreferrer" target="_blank"><i class="bi bi-circle" aria-hidden="true"></i></a>
+              <a href="https://www.amazon.co.uk/Infiniconcept-Battle-Robots/dp/B0822G6DXH" aria-label="Amazon Alexa" title="Alexa" rel="noopener noreferrer" target="_blank"><i class="bi bi-alexa" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
@@ -119,40 +119,26 @@
 
                 <div class="exp-card featured" data-aos="zoom-in" data-aos-delay="300">
                   <div class="card-header">
-                    <h4>Citadel Remonstered v1.31 released</h4>
-                    <div class="period-badge">19 Feb 2026</div>
+                    <h4>Battle Robots leaderboard update</h4>
+                    <div class="period-badge">5 May 2026</div>
                   </div>
                   <div class="card-body">
                     <p class="description">
-                    A new version 1.31 of Citadel Remonstered for the Amiga has been released. It adds the option to invert left and right mouse button operation during gameplay.<br><br>
-                    Download from the <a href="versions.html#remonstereddownloads">Versions</a> page.
+                    Battle Robots has been updated to periodically remove players who have been inactive for more than 6 months from the leaderboard, making it easier for active players to make progress. Any player can re-join the leaderboard when they become active again, they will then join at the end and will need to fight their way through the ranks.
+                    <br><br>
+                    Additionally, the leaderboard and active player stats are now available in the Battle Robots Leaderboad section. Note that the leaderboard on the website is synced with the game once per hour.
                     </p>
                   </div>
                 </div>
 
-                <div class="exp-card featured" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="card-header">
-                    <h4>Site refresh</h4>
-                    <div class="period-badge">15 Feb 2026</div>
-                  </div>
-                  <div class="card-body">
-                    <p class="description">
-                    The Infiniconcept website has been updated with a clearer structure and news focused on our games and releases.
-                    </p>
-                  </div>
+                <div id="archivenews">
                 </div>
 
-                <div class="exp-card featured" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="card-header">
-                    <h4>Citadel WebGL</h4>
-                    <div class="period-badge">10 Feb 2026</div>
-                  </div>
-                  <div class="card-body">
-                    <p class="description">
-                    Play Citadel in the browser via WebGL—retro gameplay with integrated touch controls, built on the original algorithms and assets. See <a href="versions.html#webgl">Versions</a> for details.
-                    </p>
-                  </div>
-                </div>
+                <!-- End of news items -->
+                <div id="oldnewslink" class="text-center" data-aos="fade-up">
+                  <br>
+                  <p>To see older news <a href="newsarchive.html" id="load-archive-link">click here</a></p>
+                </div>  
 
               </div>
             </div>
@@ -174,10 +160,27 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
   <script src="assets/js/hfloader.js"></script>
-
   <script src="assets/js/main.js"></script>
+
+  <script>
+    document.getElementById('load-archive-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      fetch('newsarchive.html')
+        .then(function(response) { return response.text(); })
+        .then(function(html) {
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(html, 'text/html');
+          var oldnews = doc.getElementById('oldnews');
+          if (oldnews) {
+            var archive = document.getElementById('archivenews');
+            archive.insertAdjacentHTML('afterend', oldnews.innerHTML);
+            archive.remove();
+          }
+          document.getElementById('oldnewslink').style.display = 'none';
+        });
+    });
+  </script>
 
 </body>
 
