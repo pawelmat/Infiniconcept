@@ -99,6 +99,10 @@ h6 {
   color: #8ea3cf;
 }
 
+.table-dark th.section-heading-subtle {
+  color: #8ea3cf;
+}
+
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
@@ -683,12 +687,8 @@ section,
 .about::before {
   content: "";
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 85%) 0%, transparent 70%);
-  border-radius: 50%;
+  inset: 0;
+  background: linear-gradient(to right, #121228 0%, color-mix(in srgb, var(--accent-color), transparent 82%) 100%);
   z-index: 0;
   pointer-events: none;
 }
